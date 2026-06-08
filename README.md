@@ -1,4 +1,4 @@
-# Create and Send Payment — LangGraph + Swytchcode
+# Create and Send Payment - LangGraph + Swytchcode
 
 Automates payment link creation and customer notification:
 1. Generates a Stripe payment link for $99
