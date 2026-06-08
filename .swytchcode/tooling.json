@@ -1,0 +1,1116 @@
+{
+  "integrations": {
+    "resend.resend": {
+      "version": "v1.5.0"
+    },
+    "stripe.stripe_sdk": {
+      "version": "2026-02-25"
+    }
+  },
+  "mode": "production",
+  "tools": {
+    "emails.email.create": {
+      "desc": "",
+      "inputs": [
+        {
+          "Idempotency-Key": {
+            "LOCATION": "header",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "body": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT",
+            "schema": {
+              "properties": {
+                "attachments": {
+                  "items": {
+                    "properties": {
+                      "content": {
+                        "required": false,
+                        "type": "string"
+                      },
+                      "content_id": {
+                        "required": false,
+                        "type": "string"
+                      },
+                      "content_type": {
+                        "required": false,
+                        "type": "string"
+                      },
+                      "filename": {
+                        "required": false,
+                        "type": "string"
+                      },
+                      "path": {
+                        "required": false,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "required": false,
+                  "type": "array"
+                },
+                "bcc": {
+                  "required": false,
+                  "type": "any"
+                },
+                "cc": {
+                  "required": false,
+                  "type": "any"
+                },
+                "from": {
+                  "required": true,
+                  "type": "string"
+                },
+                "headers": {
+                  "required": false,
+                  "type": "object"
+                },
+                "html": {
+                  "required": false,
+                  "type": "string"
+                },
+                "reply_to": {
+                  "required": false,
+                  "type": "any"
+                },
+                "scheduled_at": {
+                  "required": false,
+                  "type": "string"
+                },
+                "subject": {
+                  "required": true,
+                  "type": "string"
+                },
+                "tags": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "required": false,
+                        "type": "string"
+                      },
+                      "value": {
+                        "required": false,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "required": false,
+                  "type": "array"
+                },
+                "template": {
+                  "required": false,
+                  "type": "any"
+                },
+                "text": {
+                  "required": false,
+                  "type": "string"
+                },
+                "to": {
+                  "required": true,
+                  "type": "any"
+                },
+                "topic_id": {
+                  "required": false,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "from",
+                "to",
+                "subject"
+              ]
+            }
+          }
+        }
+      ],
+      "integration": "resend.resend@v1.5.0",
+      "method_hash": "6784bf62c80cb75cd7b3ebee051d70f4cc8d1d11798a837df76e54a9a0c4a6fa",
+      "output": {
+        "schema": {
+          "properties": {
+            "id": {
+              "required": false,
+              "type": "string"
+            }
+          }
+        },
+        "status": 200
+      },
+      "summary": "Send an email",
+      "type": "method"
+    },
+    "payment_links.payment_link.create": {
+      "desc": "\u003cp\u003eCreates a payment link.\u003c/p\u003e",
+      "inputs": [
+        {
+          "after_completion": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "allow_promotion_codes": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "BOOL"
+          }
+        },
+        {
+          "application_fee_amount": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "INT"
+          }
+        },
+        {
+          "application_fee_percent": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "FLOAT"
+          }
+        },
+        {
+          "automatic_tax": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "billing_address_collection": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "consent_collection": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "currency": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "custom_fields": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "[]ANY"
+          }
+        },
+        {
+          "custom_text": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "customer_creation": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "expand": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "[]STRING"
+          }
+        },
+        {
+          "inactive_message": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "invoice_creation": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "line_items": {
+            "LOCATION": "body",
+            "TYPE": "[]ANY"
+          }
+        },
+        {
+          "metadata": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "map[STRING]STRING"
+          }
+        },
+        {
+          "name_collection": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "on_behalf_of": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "optional_items": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "[]ANY"
+          }
+        },
+        {
+          "payment_intent_data": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "payment_method_collection": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "payment_method_types": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "[]STRING"
+          }
+        },
+        {
+          "phone_number_collection": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "restrictions": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "shipping_address_collection": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "shipping_options": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "[]ANY"
+          }
+        },
+        {
+          "submit_type": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "subscription_data": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "tax_id_collection": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "transfer_data": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        }
+      ],
+      "integration": "stripe.stripe_sdk@2026-02-25.clover",
+      "method_hash": "",
+      "output": {
+        "schema": {
+          "properties": {
+            "active": {
+              "required": true,
+              "type": "boolean"
+            },
+            "after_completion": {
+              "properties": {
+                "hosted_confirmation": {
+                  "properties": {
+                    "custom_message": {
+                      "required": true,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "custom_message"
+                  ],
+                  "type": "object"
+                },
+                "redirect": {
+                  "properties": {
+                    "url": {
+                      "required": true,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "type": "object"
+                },
+                "type": {
+                  "required": true,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "type": "object"
+            },
+            "allow_promotion_codes": {
+              "required": true,
+              "type": "boolean"
+            },
+            "application": {
+              "required": true,
+              "type": "any"
+            },
+            "application_fee_amount": {
+              "required": true,
+              "type": "integer"
+            },
+            "application_fee_percent": {
+              "required": true,
+              "type": "FLOAT"
+            },
+            "automatic_tax": {
+              "properties": {
+                "enabled": {
+                  "required": true,
+                  "type": "boolean"
+                },
+                "liability": {
+                  "required": true,
+                  "type": "any"
+                }
+              },
+              "required": [
+                "enabled",
+                "liability"
+              ],
+              "type": "object"
+            },
+            "billing_address_collection": {
+              "required": true,
+              "type": "string"
+            },
+            "consent_collection": {
+              "required": true,
+              "type": "any"
+            },
+            "currency": {
+              "required": true,
+              "type": "string"
+            },
+            "custom_fields": {
+              "items": {
+                "properties": {
+                  "dropdown": {
+                    "properties": {
+                      "default_value": {
+                        "required": true,
+                        "type": "string"
+                      },
+                      "options": {
+                        "items": {
+                          "properties": {
+                            "label": {
+                              "required": true,
+                              "type": "string"
+                            },
+                            "value": {
+                              "required": true,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "value"
+                          ],
+                          "type": "object"
+                        },
+                        "required": true,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "default_value",
+                      "options"
+                    ],
+                    "type": "object"
+                  },
+                  "key": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "label": {
+                    "properties": {
+                      "custom": {
+                        "required": true,
+                        "type": "string"
+                      },
+                      "type": {
+                        "required": true,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "custom",
+                      "type"
+                    ],
+                    "type": "object"
+                  },
+                  "numeric": {
+                    "properties": {
+                      "default_value": {
+                        "required": true,
+                        "type": "string"
+                      },
+                      "maximum_length": {
+                        "required": true,
+                        "type": "integer"
+                      },
+                      "minimum_length": {
+                        "required": true,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "default_value",
+                      "maximum_length",
+                      "minimum_length"
+                    ],
+                    "type": "object"
+                  },
+                  "optional": {
+                    "required": true,
+                    "type": "boolean"
+                  },
+                  "text": {
+                    "properties": {
+                      "default_value": {
+                        "required": true,
+                        "type": "string"
+                      },
+                      "maximum_length": {
+                        "required": true,
+                        "type": "integer"
+                      },
+                      "minimum_length": {
+                        "required": true,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "default_value",
+                      "maximum_length",
+                      "minimum_length"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "label",
+                  "optional",
+                  "type"
+                ],
+                "type": "object"
+              },
+              "required": true,
+              "type": "array"
+            },
+            "custom_text": {
+              "properties": {
+                "after_submit": {
+                  "required": true,
+                  "type": "any"
+                },
+                "shipping_address": {
+                  "required": true,
+                  "type": "any"
+                },
+                "submit": {
+                  "required": true,
+                  "type": "any"
+                },
+                "terms_of_service_acceptance": {
+                  "required": true,
+                  "type": "any"
+                }
+              },
+              "required": [
+                "after_submit",
+                "shipping_address",
+                "submit",
+                "terms_of_service_acceptance"
+              ],
+              "type": "object"
+            },
+            "customer_creation": {
+              "required": true,
+              "type": "string"
+            },
+            "id": {
+              "required": true,
+              "type": "string"
+            },
+            "inactive_message": {
+              "required": true,
+              "type": "string"
+            },
+            "invoice_creation": {
+              "required": true,
+              "type": "any"
+            },
+            "line_items": {
+              "required": false,
+              "type": "object"
+            },
+            "livemode": {
+              "required": true,
+              "type": "boolean"
+            },
+            "metadata": {
+              "required": true,
+              "type": "map[STRING]STRING"
+            },
+            "name_collection": {
+              "properties": {
+                "business": {
+                  "properties": {
+                    "enabled": {
+                      "required": true,
+                      "type": "boolean"
+                    },
+                    "optional": {
+                      "required": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "enabled",
+                    "optional"
+                  ],
+                  "type": "object"
+                },
+                "individual": {
+                  "properties": {
+                    "enabled": {
+                      "required": true,
+                      "type": "boolean"
+                    },
+                    "optional": {
+                      "required": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "enabled",
+                    "optional"
+                  ],
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "object": {
+              "required": true,
+              "type": "string"
+            },
+            "on_behalf_of": {
+              "required": true,
+              "type": "any"
+            },
+            "optional_items": {
+              "items": {
+                "properties": {
+                  "adjustable_quantity": {
+                    "required": true,
+                    "type": "any"
+                  },
+                  "price": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "quantity": {
+                    "required": true,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "adjustable_quantity",
+                  "price",
+                  "quantity"
+                ],
+                "type": "object"
+              },
+              "required": false,
+              "type": "array"
+            },
+            "payment_intent_data": {
+              "required": true,
+              "type": "any"
+            },
+            "payment_method_collection": {
+              "required": true,
+              "type": "string"
+            },
+            "payment_method_types": {
+              "required": true,
+              "type": "[]STRING"
+            },
+            "phone_number_collection": {
+              "properties": {
+                "enabled": {
+                  "required": true,
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "enabled"
+              ],
+              "type": "object"
+            },
+            "restrictions": {
+              "required": true,
+              "type": "any"
+            },
+            "shipping_address_collection": {
+              "required": true,
+              "type": "any"
+            },
+            "shipping_options": {
+              "items": {
+                "properties": {
+                  "shipping_amount": {
+                    "required": true,
+                    "type": "integer"
+                  },
+                  "shipping_rate": {
+                    "required": true,
+                    "type": "any"
+                  }
+                },
+                "required": [
+                  "shipping_amount",
+                  "shipping_rate"
+                ],
+                "type": "object"
+              },
+              "required": true,
+              "type": "array"
+            },
+            "submit_type": {
+              "required": true,
+              "type": "string"
+            },
+            "subscription_data": {
+              "required": true,
+              "type": "any"
+            },
+            "tax_id_collection": {
+              "properties": {
+                "enabled": {
+                  "required": true,
+                  "type": "boolean"
+                },
+                "required": {
+                  "required": true,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "enabled",
+                "required"
+              ],
+              "type": "object"
+            },
+            "transfer_data": {
+              "required": true,
+              "type": "any"
+            },
+            "url": {
+              "required": true,
+              "type": "string"
+            }
+          },
+          "required": [
+            "active",
+            "after_completion",
+            "allow_promotion_codes",
+            "application",
+            "application_fee_amount",
+            "application_fee_percent",
+            "automatic_tax",
+            "billing_address_collection",
+            "consent_collection",
+            "currency",
+            "custom_fields",
+            "custom_text",
+            "customer_creation",
+            "id",
+            "inactive_message",
+            "invoice_creation",
+            "livemode",
+            "metadata",
+            "object",
+            "on_behalf_of",
+            "payment_intent_data",
+            "payment_method_collection",
+            "payment_method_types",
+            "phone_number_collection",
+            "restrictions",
+            "shipping_address_collection",
+            "shipping_options",
+            "submit_type",
+            "subscription_data",
+            "tax_id_collection",
+            "transfer_data",
+            "url"
+          ]
+        },
+        "status": 200
+      },
+      "summary": "Create a payment link",
+      "type": "method"
+    },
+    "prices.price.create": {
+      "desc": "\u003cp\u003eCreates a new \u003ca href=\"https://docs.stripe.com/api/prices\"\u003ePrice\u003c/a\u003e for an existing \u003ca href=\"https://docs.stripe.com/api/products\"\u003eProduct\u003c/a\u003e. The Price can be recurring or one-time.\u003c/p\u003e",
+      "inputs": [
+        {
+          "active": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "BOOL"
+          }
+        },
+        {
+          "billing_scheme": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "currency": {
+            "LOCATION": "body",
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "currency_options": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "map[STRING]ANY"
+          }
+        },
+        {
+          "custom_unit_amount": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "expand": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "[]STRING"
+          }
+        },
+        {
+          "lookup_key": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "metadata": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "map[STRING]STRING"
+          }
+        },
+        {
+          "nickname": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "product": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "product_data": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "recurring": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "tax_behavior": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "tiers": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "[]ANY"
+          }
+        },
+        {
+          "tiers_mode": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        },
+        {
+          "transfer_lookup_key": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "BOOL"
+          }
+        },
+        {
+          "transform_quantity": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "OBJECT"
+          }
+        },
+        {
+          "unit_amount": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "INT"
+          }
+        },
+        {
+          "unit_amount_decimal": {
+            "LOCATION": "body",
+            "REQUIRED": false,
+            "TYPE": "STRING"
+          }
+        }
+      ],
+      "integration": "stripe.stripe_sdk@2026-02-25.clover",
+      "method_hash": "",
+      "output": {
+        "schema": {
+          "properties": {
+            "active": {
+              "required": true,
+              "type": "boolean"
+            },
+            "billing_scheme": {
+              "required": true,
+              "type": "string"
+            },
+            "created": {
+              "required": true,
+              "type": "integer"
+            },
+            "currency": {
+              "required": true,
+              "type": "string"
+            },
+            "currency_options": {
+              "required": false,
+              "type": "map[STRING]ANY"
+            },
+            "custom_unit_amount": {
+              "required": true,
+              "type": "any"
+            },
+            "id": {
+              "required": true,
+              "type": "string"
+            },
+            "livemode": {
+              "required": true,
+              "type": "boolean"
+            },
+            "lookup_key": {
+              "required": true,
+              "type": "string"
+            },
+            "metadata": {
+              "required": true,
+              "type": "map[STRING]STRING"
+            },
+            "nickname": {
+              "required": true,
+              "type": "string"
+            },
+            "object": {
+              "required": true,
+              "type": "string"
+            },
+            "product": {
+              "required": true,
+              "type": "any"
+            },
+            "recurring": {
+              "required": true,
+              "type": "any"
+            },
+            "tax_behavior": {
+              "required": true,
+              "type": "string"
+            },
+            "tiers": {
+              "items": {
+                "properties": {
+                  "flat_amount": {
+                    "required": true,
+                    "type": "integer"
+                  },
+                  "flat_amount_decimal": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "unit_amount": {
+                    "required": true,
+                    "type": "integer"
+                  },
+                  "unit_amount_decimal": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "up_to": {
+                    "required": true,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "flat_amount",
+                  "flat_amount_decimal",
+                  "unit_amount",
+                  "unit_amount_decimal",
+                  "up_to"
+                ],
+                "type": "object"
+              },
+              "required": false,
+              "type": "array"
+            },
+            "tiers_mode": {
+              "required": true,
+              "type": "string"
+            },
+            "transform_quantity": {
+              "required": true,
+              "type": "any"
+            },
+            "type": {
+              "required": true,
+              "type": "string"
+            },
+            "unit_amount": {
+              "required": true,
+              "type": "integer"
+            },
+            "unit_amount_decimal": {
+              "required": true,
+              "type": "string"
+            }
+          },
+          "required": [
+            "active",
+            "billing_scheme",
+            "created",
+            "currency",
+            "custom_unit_amount",
+            "id",
+            "livemode",
+            "lookup_key",
+            "metadata",
+            "nickname",
+            "object",
+            "product",
+            "recurring",
+            "tax_behavior",
+            "tiers_mode",
+            "transform_quantity",
+            "type",
+            "unit_amount",
+            "unit_amount_decimal"
+          ]
+        },
+        "status": 200
+      },
+      "summary": "Create a price",
+      "type": "method"
+    }
+  },
+  "version": "1"
+}
