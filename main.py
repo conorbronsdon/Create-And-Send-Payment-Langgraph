@@ -90,7 +90,7 @@ app = workflow.compile()
 
 if __name__ == "__main__":
     result = app.invoke({
-        "customer_email":   "lkomrawat@gmail.com",
+        "customer_email":   os.environ["CUSTOMER_EMAIL"],
         "customer_name":    "John Smith",
         "payment_link_url": None,
         "payment_link_id":  None,
